@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faPenToSquare, faTrash} from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
 
@@ -27,10 +29,11 @@ export default function Home() {
             <table className="table table-striped border shadow">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
                     <th scope="col">Auction</th>
                     </tr>
                 </thead>
@@ -42,10 +45,12 @@ export default function Home() {
                             <td>{user.name}</td>
                             <td>{user.username}</td>
                             <td>{user.email}</td>
+                            <td>{user.phonenumber}</td>
                             <td>
-                                <Link className='btn btn-primary mx-2' to={`/viewuser/${user.id}`}>View</Link>
-                                <Link className='btn btn-success mx-2' to={`/edituser/${user.id}`}>Edit</Link>
-                                <Link className='btn btn-danger mx-2' onClick={()=>deleteUser(user.id)}>Delete</Link>
+                                
+                                <Link className='btn btn-primary mx-2' to={`/viewuser/${user.id}`}><FontAwesomeIcon icon={faEye} /></Link>
+                                <Link className='btn btn-success mx-2' to={`/edituser/${user.id}`}><FontAwesomeIcon icon={faPenToSquare} /></Link>
+                                <Link className='btn btn-danger mx-2' onClick={()=>deleteUser(user.id)}><FontAwesomeIcon icon={faTrash} /></Link>
                             </td>
                         </tr>
                         ))

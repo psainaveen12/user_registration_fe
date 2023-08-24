@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
 
 export default function EditUser() {
 
@@ -11,10 +13,11 @@ export default function EditUser() {
     const [user, setUser]=useState({
         name:"",
         username:"",
-        email:""
+        email:"",
+        phonenumber:null
     });
 
-    const{name,username,email}=user
+    const{name,username,email,phonenumber}=user
 
     const onInputChange=(e)=>{
         setUser({...user, [e.target.name]:e.target.value})
@@ -52,6 +55,7 @@ export default function EditUser() {
                         name = "name"
                         value={name}
                         onChange={(e)=>onInputChange(e)}
+                        required
                         />
                     </div>
                     <div className='mb-3'>
@@ -65,6 +69,7 @@ export default function EditUser() {
                         name = "username"
                         value={username}
                         onChange={(e)=>onInputChange(e)}
+                        required
                         />
                     </div>
                     <div className='mb-3'>
@@ -78,10 +83,25 @@ export default function EditUser() {
                         name = "email"
                         value={email}
                         onChange={(e)=>onInputChange(e)}
+                        required
                         />
                     </div>
-                    <button className='btn btn-outline-primary'>Submit</button>
-                    <Link className='btn btn-outline-danger mx-2' to="/">Cancel</Link>
+                    <div className='mb-3'>
+                        <label htmlFor='PhoneNumber' className='form-lable'>
+                        Phone Number
+                        </label>
+                        <input
+                        type={'number'}
+                        className='form-control'
+                        placeholder='Enter Your Phone Number'
+                        name = "phonenumber"
+                        value={phonenumber}
+                        onChange={(e)=>onInputChange(e)}
+                        required
+                        />
+                    </div>
+                    <button className='btn btn-outline-primary mx-2'>Submit <FontAwesomeIcon icon={faArrowRightToBracket} /></button>
+                    <Link className='btn btn-outline-danger mx-2' to="/">Cancel <FontAwesomeIcon icon={faXmark} /></Link>
                 </form>
             </div>
         </div>

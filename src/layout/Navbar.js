@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus} from '@fortawesome/free-solid-svg-icons';
 
 export default function Navbar() {
   return (
@@ -22,7 +24,7 @@ export default function Navbar() {
           </button>
 
           <Link className="btn btn-outline-light" to="/adduser">
-            Add User
+          <FontAwesomeIcon icon={faUserPlus} /> New User
           </Link>
         </div>
       </nav>

@@ -1,25 +1,36 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare,faHouse, faTrash} from '@fortawesome/free-solid-svg-icons';
+
 
 export default function ViewUser() {
 
     const [user, setUser] = useState({
         name:"",
         username:"",
-        email:""
+        email:"",
+        phonenumber:null
     });
 
     const {id} = useParams();
+    const navigate = useNavigate();
+
+
+    const deleteUser = async (id) => {
+        await axios.delete(`http://localhost:8081/user/${id}`);
+        navigate('/', { replace: true });
+    }
 
     useEffect(()=>{
         loadUser()
     },[]);
 
-        const loadUser = async()=>{
-            const result=await axios.get(`http://localhost:8081/user/${id}`);
-            setUser(result.data);
-        }
+    const loadUser = async()=>{
+        const result=await axios.get(`http://localhost:8081/user/${id}`);
+        setUser(result.data);
+    }
 
   return (
     <div className='conntainer'>
@@ -29,8 +40,8 @@ export default function ViewUser() {
 
             <div className='card'>
                 <div className='card-header'>
-                    Details of User with Id : {user.id}
-                    <ul className='list-group list-group-flush'>
+                    Details of User with ID : {user.id}
+                    <ul className='list-group list-group-flush mt-2'>
                         <li className='list-group-item'>
                             <b>Name : </b>
                             {user.name}
@@ -43,10 +54,16 @@ export default function ViewUser() {
                             <b>Email : </b>
                             {user.email}
                         </li>
+                        <li className='list-group-item'>
+                            <b>Phone Number : </b>
+                            {user.phonenumber}
+                        </li>
                     </ul>
                 </div>
             </div>
-            <Link className="btn btn-outline-primary my-2" to={"/"}>Back to Home</Link>
+            <Link className="btn btn-primary my-3 mx-2" to={"/"}><FontAwesomeIcon icon={faHouse} /></Link>
+            <Link className='btn btn-success mx-2' to={`/edituser/${user.id}`}><FontAwesomeIcon icon={faPenToSquare} /></Link>
+            <Link className='btn btn-danger mx-2' onClick={()=>deleteUser(user.id)}><FontAwesomeIcon icon={faTrash} /></Link>
             </div>
         </div>
     </div>
