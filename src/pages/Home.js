@@ -70,7 +70,7 @@ export default function Home() {
                   {/* <Button className='btn btn-danger mx-2' onClick={()=>deleteUser(user.id,user.username)}><FontAwesomeIcon icon={faTrash} /></Button> */}
 
                   <button className='btn btn-danger mx-2' onClick={() => {
-                                    const confirmBox = window.confirm( "Do you really want to delete tis USER - " + user.username +" ?")
+                                    const confirmBox = window.confirm( "Do you really want to delete this USER - " + user.username +" ?")
                                     if (confirmBox === true){
                                         deleteUser(user.id,user.username)
                                         }}}><FontAwesomeIcon icon={faTrash} />
