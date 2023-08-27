@@ -18,7 +18,7 @@ export default function ViewUser() {
     const navigate = useNavigate();
 
 
-    const deleteUser = async (id) => {
+    const deleteUser = async (id,username) => {
         await axios.delete(`http://localhost:8081/user/${id}`);
         navigate('/', { replace: true });
     }
@@ -30,7 +30,7 @@ export default function ViewUser() {
     const loadUser = async()=>{
         const result=await axios.get(`http://localhost:8081/user/${id}`);
         setUser(result.data);
-    }
+    };
 
   return (
     <div className='conntainer'>
@@ -63,7 +63,15 @@ export default function ViewUser() {
             </div>
             <Link className="btn btn-primary my-3 mx-2" to={"/"}><FontAwesomeIcon icon={faHouse} /></Link>
             <Link className='btn btn-success mx-2' to={`/edituser/${user.id}`}><FontAwesomeIcon icon={faPenToSquare} /></Link>
-            <Link className='btn btn-danger mx-2' onClick={()=>deleteUser(user.id)}><FontAwesomeIcon icon={faTrash} /></Link>
+            {/* <Link className='btn btn-danger mx-2' onClick={()=>deleteUser(user.id)}><FontAwesomeIcon icon={faTrash} /></Link> */}
+
+            <button className='btn btn-danger mx-2' onClick={() => {
+                                    const confirmBox = window.confirm( "Do you really want to delete this USER - " + user.username +" ?")
+                                    if (confirmBox === true){
+                                        deleteUser(user.id,user.username)
+                                        }}}><FontAwesomeIcon icon={faTrash} />
+                                </button>
+
             </div>
         </div>
     </div>
