@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className="container">
       <div className="py-4">
-        <table className="table table-striped border shadow">
+        <table className="table table-striped border shadow custom_table_style">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -40,6 +40,8 @@ export default function Home() {
               <th scope="col">Username</th>
               <th scope="col">Email</th>
               <th scope="col">Phone Number</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
               <th scope="col">Auction</th>
             </tr>
           </thead>
@@ -53,6 +55,8 @@ export default function Home() {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>{user.phonenumber}</td>
+                <td>{user.date}</td>
+                <td>{user.time}</td>
                 <td>
                   <Link
                     className="btn btn-primary mx-2"
