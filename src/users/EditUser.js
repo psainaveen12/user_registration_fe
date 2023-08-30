@@ -14,10 +14,12 @@ export default function EditUser() {
         name:"",
         username:"",
         email:"",
-        phonenumber:null
+        phonenumber:null,
+        date:null,
+        time:null
     });
 
-    const{name,username,email,phonenumber}=user
+    const{name,username,email,phonenumber,date,time}=user
 
     const onInputChange=(e)=>{
         setUser({...user, [e.target.name]:e.target.value})
@@ -41,7 +43,7 @@ export default function EditUser() {
   return (
     <div className='conntainer'>
         <div className='row'>
-            <div className="col-md-6 offset-3 border rounded p-4 mt-2 shadow">
+            <div className="col-md-6 offset-3 border rounded p-4 mt-2 shadow custom_table_style">
                 <h2 className='text-center m-4'>Edit User</h2>
                 <form onSubmit={(e)=>onSubmit(e)}>
                     <div className='mb-3'>
