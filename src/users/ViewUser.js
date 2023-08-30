@@ -11,7 +11,9 @@ export default function ViewUser() {
         name:"",
         username:"",
         email:"",
-        phonenumber:null
+        phonenumber:null,
+        date:null,
+        time:null
     });
 
     const {id} = useParams();
@@ -35,7 +37,7 @@ export default function ViewUser() {
   return (
     <div className='conntainer'>
         <div className='row'>
-            <div className="col-md-6 offset-3 border rounded p-4 mt-2 shadow">
+            <div className="col-md-6 offset-3 border rounded p-4 mt-2 shadow custom_table_style">
             <h2 className='text-center m-4'>View User</h2>
 
             <div className='card'>
@@ -57,6 +59,14 @@ export default function ViewUser() {
                         <li className='list-group-item'>
                             <b>Phone Number : </b>
                             {user.phonenumber}
+                        </li>
+                        <li className='list-group-item'>
+                            <b>Date : </b>
+                            {user.date}
+                        </li>
+                        <li className='list-group-item'>
+                            <b>Time : </b>
+                            {user.time}
                         </li>
                     </ul>
                 </div>
