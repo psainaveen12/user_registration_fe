@@ -12,15 +12,15 @@ import {
 export default function Home() {
 
   const { id } = useParams();
-
-  const [User, serUsers] = useState([]);
+  const [User, setUsers] = useState([]);
+  
   useEffect(() => {
     loadUsers();
   }, []);
 
   const loadUsers = async () => {
     const result = await axios.get("http://localhost:8081/users");
-    serUsers(result.data);
+    setUsers(result.data);
   };
 
   const deleteUser = async (id, username) => {
@@ -31,8 +31,8 @@ export default function Home() {
 
   return (
     <div className="container">
-      <div className="py-4">
-        <table className="table table-striped border shadow custom_table_style">
+      <div className="py-2">
+        <table className="table table-striped text-nowrap border shadow custom_table_style">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -42,7 +42,7 @@ export default function Home() {
               <th scope="col">Phone Number</th>
               <th scope="col">Date</th>
               <th scope="col">Time</th>
-              <th scope="col">Auction</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -70,9 +70,6 @@ export default function Home() {
                   >
                     <FontAwesomeIcon icon={faPenToSquare} />
                   </Link>
-                  {/* <Link className='btn btn-danger mx-2' onClick={()=>deleteUser(user.id)}><FontAwesomeIcon icon={faTrash} /></Link> */}
-                  {/* <Button className='btn btn-danger mx-2' onClick={()=>deleteUser(user.id,user.username)}><FontAwesomeIcon icon={faTrash} /></Button> */}
-
                   <button className='btn btn-danger mx-2' onClick={() => {
                                     const confirmBox = window.confirm( "Do you really want to delete this USER - " + user.username +" ?")
                                     if (confirmBox === true){
@@ -88,3 +85,4 @@ export default function Home() {
     </div>
   );
 }
+
