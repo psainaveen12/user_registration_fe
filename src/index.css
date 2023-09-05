@@ -14,10 +14,27 @@ code {
     monospace;
 }
 
+.gridrowstylepadding1{
+  padding-top: 25px;
+}
+
+.gridrowstyle1{
+  background-color: rgb(109, 184, 184);
+}
+
+.custom_table_style{
+  background-color: white;
+  color: #000000;
+}
+
+.homeuserprofilesgridsize{
+  width: 500px;
+  height: auto;
+}
+
 body.dark-mode {
   background-color: #40414f;
 }
-
 
 .dark-mode-toggle {
   display: flex;
@@ -76,6 +93,3 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.custom_table_style{
-  background-color: white;
-}
