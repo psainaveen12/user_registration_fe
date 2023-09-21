@@ -7,6 +7,7 @@ import { faPenToSquare,faHouse, faTrash} from '@fortawesome/free-solid-svg-icons
 
 export default function ViewUser() {
 
+    const ROOT_URL = "http://localhost:8081/";
     const [user, setUser] = useState({
         name:"",
         username:"",
@@ -21,7 +22,7 @@ export default function ViewUser() {
 
 
     const deleteUser = async (id,username) => {
-        await axios.delete(`http://localhost:8081/user/${id}`);
+        await axios.delete(ROOT_URL+`deleteuser/${id}`);
         navigate('/', { replace: true });
     }
 
@@ -30,7 +31,7 @@ export default function ViewUser() {
     },[]);
 
     const loadUser = async()=>{
-        const result=await axios.get(`http://localhost:8081/user/${id}`);
+        const result=await axios.get(ROOT_URL+`user/${id}`);
         setUser(result.data);
     };
 

@@ -6,6 +6,7 @@ import { faXmark, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons
 
 export default function EditUser() {
 
+    const ROOT_URL = "http://localhost:8081/";
     let navigate = useNavigate();
 
     const {id} = useParams()
@@ -31,12 +32,12 @@ export default function EditUser() {
 
     const onSubmit=async (e)=>{
         e.preventDefault();
-        await axios.put(`http://localhost:8081/user/${id}`,user);
+        await axios.put(ROOT_URL+`updateuser/${id}`,user);
         navigate("/");
     };
 
     const loadUser = async () => {
-        const result = await axios.get(`http://localhost:8081/user/${id}`)
+        const result = await axios.get(ROOT_URL+`user/${id}`)
         setUser(result.data)
     }
 
