@@ -12,6 +12,7 @@ import { Style } from '@mui/icons-material';
 
 export default function HomeUserProfiles() {
 
+  const ROOT_URL = "http://localhost:8081/";
   const { id } = useParams();
   const [User, setUsers] = useState([]);
 
@@ -20,12 +21,12 @@ export default function HomeUserProfiles() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:8081/users");
+    const result = await axios.get(ROOT_URL+"allusers");
     setUsers(result.data);
   };
 
   const deleteUser = async (id, username) => {
-    await axios.delete(`http://localhost:8081/user/${id}`);
+    await axios.delete(ROOT_URL+`deleteuser/${id}`);
     loadUsers();
   };
 

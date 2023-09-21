@@ -6,6 +6,7 @@ import { faXmark, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons
 
 export default function AddUser() {
 
+    // const ROOT_URL = "http://localhost:8081/";
     let navigate = useNavigate();
 
     const [user, setUser]=useState({
@@ -25,7 +26,7 @@ export default function AddUser() {
 
     const onSubmit=async (e)=>{
         e.preventDefault();
-        await axios.post("http://localhost:8081/user",user);
+        await axios.post("http://localhost:8081/adduser",user);
         navigate("/");
     };
 

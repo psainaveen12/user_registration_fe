@@ -8,26 +8,25 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
-
 export default function Home() {
+  const ROOT_URL = "http://localhost:8081/";
 
   const { id } = useParams();
   const [User, setUsers] = useState([]);
-  
+
   useEffect(() => {
     loadUsers();
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:8081/users");
+    const result = await axios.get(ROOT_URL + "allusers");
     setUsers(result.data);
   };
 
   const deleteUser = async (id, username) => {
-    await axios.delete(`http://localhost:8081/user/${id}`);
+    await axios.delete(ROOT_URL + `deleteuser/${id}`);
     loadUsers();
   };
-
 
   return (
     <div className="container">
@@ -70,12 +69,21 @@ export default function Home() {
                   >
                     <FontAwesomeIcon icon={faPenToSquare} />
                   </Link>
-                  <button className='btn btn-danger mx-2' onClick={() => {
-                                    const confirmBox = window.confirm( "Do you really want to delete this USER - " + user.username +" ?")
-                                    if (confirmBox === true){
-                                        deleteUser(user.id,user.username)
-                                        }}}><FontAwesomeIcon icon={faTrash} />
-                                </button>
+                  <button
+                    className="btn btn-danger mx-2"
+                    onClick={() => {
+                      const confirmBox = window.confirm(
+                        "Do you really want to delete this USER - " +
+                          user.username +
+                          " ?"
+                      );
+                      if (confirmBox === true) {
+                        deleteUser(user.id, user.username);
+                      }
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
                 </td>
               </tr>
             ))}
@@ -85,4 +93,3 @@ export default function Home() {
     </div>
   );
 }
-
