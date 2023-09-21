@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserPlus} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import DarkModeToggle from "./DarkModeToggle";
 
 export default function Navbar() {
@@ -12,12 +12,14 @@ export default function Navbar() {
           <a className="navbar-brand" href="/">
             Full Stack Web App
           </a>
-          
-          <DarkModeToggle/>
-          <Link className="btn btn-outline-light mx-2" to="/HomeUserProfiles"> Profiles</Link>
 
+          <DarkModeToggle />
+          <Link className="btn btn-outline-light mx-2" to="/HomeUserProfiles">
+            {" "}
+            Profiles
+          </Link>
           <Link className="btn btn-outline-light" to="/adduser">
-          <FontAwesomeIcon icon={faUserPlus} /> Add User
+            <FontAwesomeIcon icon={faUserPlus} /> Add User
           </Link>
         </div>
       </nav>
