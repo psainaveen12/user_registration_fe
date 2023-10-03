@@ -25,7 +25,7 @@ export default function HomeUserProfiles() {
   };
 
   return (
-    <Container>
+    <Container className="borderradius1">
       <Row>
         {User.map((User, k) => (
           <Col key={k} xs={12} md={4} className="gridrowstylepadding1">
