@@ -16,10 +16,12 @@ code {
 
 .gridrowstylepadding1{
   padding-top: 25px;
+  border-radius: 50%;
 }
 
 .gridrowstyle1{
-  background-color: rgb(109, 184, 184);
+  background-color: rgb(183, 230, 230);
+  
 }
 
 .custom_table_style{
