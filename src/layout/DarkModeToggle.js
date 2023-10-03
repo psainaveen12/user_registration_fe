@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(true);
 
   const toggleDarkMode = () => {
-    setDarkMode(prevMode => !prevMode);
+    setDarkMode((prevMode) => !prevMode);
   };
 
   useEffect(() => {
     const body = document.body;
-    body.classList.toggle('dark-mode', darkMode);
+    body.classList.toggle("dark-mode", darkMode);
   }, [darkMode]);
 
   return (

@@ -10,8 +10,6 @@ import ViewUser from "./users/ViewUser";
 import HomeUserProfiles from "./pages/HomeUserProfiles";
 
 function App() {
-  const ROOT_API_URL = "http://localhost:8081/";
-
   return (
     <div className="App">
       <Router>

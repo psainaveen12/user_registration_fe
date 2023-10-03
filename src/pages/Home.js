@@ -9,8 +9,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
-  const ROOT_URL = "http://localhost:8081/";
-
   const { id } = useParams();
   const [User, setUsers] = useState([]);
 
@@ -19,12 +17,12 @@ export default function Home() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get(ROOT_URL + "allusers");
+    const result = await axios.get("/allusers");
     setUsers(result.data);
   };
 
   const deleteUser = async (id, username) => {
-    await axios.delete(ROOT_URL + `deleteuser/${id}`);
+    await axios.delete("deleteuser/${id}");
     loadUsers();
   };
 
