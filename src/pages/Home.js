@@ -17,12 +17,12 @@ export default function Home() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("/allusers");
+    const result = await axios.get("/user_reg/allusers");
     setUsers(result.data);
   };
 
   const deleteUser = async (id, username) => {
-    await axios.delete("deleteuser/${id}");
+    await axios.delete(`/user_reg/deleteuser/${id}`);
     loadUsers();
   };
 

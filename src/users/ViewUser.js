@@ -22,7 +22,7 @@ export default function ViewUser() {
   const navigate = useNavigate();
 
   const deleteUser = async (id, username) => {
-    await axios.delete(`/deleteuser/${id}`);
+    await axios.delete(`/user_reg/deleteuser/${id}`);
     navigate("/", { replace: true });
   };
 
@@ -31,7 +31,7 @@ export default function ViewUser() {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`/user/${id}`);
+    const result = await axios.get(`/user_reg/user/${id}`);
     setUser(result.data);
   };
 

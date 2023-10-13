@@ -18,6 +18,10 @@ export default function Navbar() {
             {" "}
             Profiles
           </Link>
+          <Link className="btn btn-outline-light mx-2" to="/HomeFakenames">
+            {" "}
+            FakeUsers
+          </Link>
           <Link className="btn btn-outline-light" to="/adduser">
             <FontAwesomeIcon icon={faUserPlus} /> Add User
           </Link>

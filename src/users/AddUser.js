@@ -27,7 +27,7 @@ export default function AddUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("/adduser", user);
+    await axios.post("/user_reg/adduser", user);
     navigate("/");
   };
 
