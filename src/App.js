@@ -8,6 +8,7 @@ import AddUser from "./users/AddUser";
 import EditUser from "./users/EditUser";
 import ViewUser from "./users/ViewUser";
 import HomeUserProfiles from "./pages/HomeUserProfiles";
+import HomeFakeNames from "./pages/HomeFakeNames";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             path="/HomeUserProfiles"
             element={<HomeUserProfiles />}
           />
+          <Route exact path="/HomeFakeNames" element={<HomeFakeNames />} />
           <Route exact path="/adduser" element={<AddUser />} />
           <Route exact path="/edituser/:id" element={<EditUser />} />
           <Route exact path="/viewuser/:id" element={<ViewUser />} />
