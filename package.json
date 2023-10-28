@@ -2,7 +2,6 @@
   "name": "fullstackwebapp1-frontend",
   "version": "0.1.0",
   "proxy": "http://3.135.199.72:8080/",
-  "homepage": "https://psainaveen12.github.io/user_registration_front_end",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -23,14 +22,11 @@
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
-    "react-scripts": "^3.0.1",
     "reactstrap": "^9.2.0",
     "typescript": "^5.2.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -56,6 +52,8 @@
   },
   "devDependencies": {
     "dotenv": "^16.3.1",
-    "gh-pages": "^6.0.0"
+    "react-scripts": "^5.0.1",
+    "typescript": "^3.2.1",
+    "webpack": "5.89.0"
   }
 }
