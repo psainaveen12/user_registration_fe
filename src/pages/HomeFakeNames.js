@@ -23,7 +23,7 @@ export default function HomeFakeNames() {
 
   //   const deleteUser = async (id, username) => {
   //     await axios.delete(`/user_reg/deleteuser/${id}`);
-  //     loadUsers();
+  // loadUsers();
   //   };
 
   return (
