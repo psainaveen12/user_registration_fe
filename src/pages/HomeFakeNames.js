@@ -17,7 +17,7 @@ export default function HomeFakeNames() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("/fakenames/10users");
+    const result = await axios.get("/fakenames/allusers");
     setUsers(result.data);
   };
 
