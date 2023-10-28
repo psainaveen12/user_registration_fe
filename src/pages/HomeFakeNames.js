@@ -53,7 +53,7 @@ export default function HomeFakeNames() {
           </div>
         </div>
       </div> */}
-      <div className="container">
+      <div className="container-fluid">
         <div className="py-2">
           <table className="table table-striped text-nowrap border shadow custom_table_style">
             <thead>
@@ -68,7 +68,7 @@ export default function HomeFakeNames() {
                 <th scope="col">CVV2</th>
                 <th scope="col">CCExpires</th>
                 <th scope="col">Color</th>
-                <th scope="col">Bloodtype</th>
+                {/* <th scope="col">Bloodtype</th> */}
                 <th scope="col">Kilograms</th>
                 <th scope="col">Centimeters</th>
                 <th scope="col">Gender</th>
@@ -93,7 +93,7 @@ export default function HomeFakeNames() {
                   <td>{user.cvv2}</td>
                   <td>{user.ccexpires}</td>
                   <td>{user.color}</td>
-                  <td>{user.bloodtype}</td>
+                  {/* <td>{user.bloodtype}</td> */}
                   <td>{user.kilograms}</td>
                   <td>{user.centimeters}</td>
                   <td>{user.gender}</td>
