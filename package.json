@@ -2,7 +2,7 @@
   "name": "fullstackwebapp1-frontend",
   "version": "0.1.0",
   "proxy": "http://3.135.199.72:8080/",
-
+  "homepage": "https://psainaveen12.github.io/user_registration_front_end",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -29,6 +29,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy" : "npm run build",
