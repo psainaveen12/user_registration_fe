@@ -14,12 +14,14 @@ export default function AddUser() {
     name: "",
     username: "",
     email: "",
+    gender: "",
     phonenumber: null,
     date: null,
     time: null,
+    pictureurl: null,
   });
 
-  const { name, username, email, phonenumber, date, time } = user;
+  const { name, username, email, gender, phonenumber, date, time } = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -92,6 +94,38 @@ export default function AddUser() {
                 onChange={(e) => onInputChange(e)}
                 required
               />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="gender" className="form-lable">
+                Gender
+              </label>
+              <span className="e-btn-group p-4">
+                <input
+                  type="radio"
+                  id="radioleft"
+                  name="gender"
+                  value="men"
+                  onChange={(e) => onInputChange(e)}
+                  checked={gender === "men"}
+                  required
+                />
+                <label className="e-btn" htmlFor="gender">
+                  Men
+                </label>
+                <span className="p-4"></span>
+                <input
+                  type="radio"
+                  id="radioright"
+                  name="gender"
+                  value="women"
+                  onChange={(e) => onInputChange(e)}
+                  checked={gender === "women"}
+                  required
+                />
+                <label className="e-btn" htmlFor="gender">
+                  Women
+                </label>
+              </span>
             </div>
             <button className="btn btn-outline-primary mx-2">
               Submit <FontAwesomeIcon icon={faArrowRightToBracket} />

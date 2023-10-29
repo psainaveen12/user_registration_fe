@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Card, Row, Col, Container } from "react-bootstrap";
+import { Row, Container } from "react-bootstrap";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Style } from "@mui/icons-material";
 
-export default function HomeUserProfiles() {
+export default function UserCards() {
   const { id } = useParams();
   const [User, setUsers] = useState([]);
 
@@ -20,21 +19,26 @@ export default function HomeUserProfiles() {
   };
 
   const deleteUser = async (id, username) => {
-    await axios.delete("/user_reg/deleteuser/${id}");
+    await axios.delete(`/user_reg/deleteuser/${id}`);
     loadUsers();
   };
 
   return (
-    <Container className="borderradius1">
+    <Container className="clearfix">
       <Row>
         {User.map((User, k) => (
-          <Col key={k} xs={12} md={4} className="gridrowstylepadding1">
-            <Card className="border-dark">
-              <Card.Body className="gridrowstyle1">
-                <Card.Title>{User.username}</Card.Title>
-                <Card.Title>{User.email}</Card.Title>
-                <Card.Title>{User.phonenumber}</Card.Title>
-                {/* </Card.Body> */}
+          <div className="col-md-4 animated fadeIn" key={k}>
+            <div className="card">
+              <div className="card-body">
+                <div className="avatar">
+                  <img src={User.pictureurl} className="card-img-top" alt="" />
+                </div>
+                <h5 className="card-title">{User.username}</h5>
+                <p className="card-text">
+                  {User.email}
+                  <br />
+                  <span className="phone">{User.phonenumber}</span>
+                </p>
                 <div>
                   <Link
                     className="btn btn-success mx-2"
@@ -58,9 +62,9 @@ export default function HomeUserProfiles() {
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
                 </div>
-              </Card.Body>
-            </Card>
-          </Col>
+              </div>
+            </div>
+          </div>
         ))}
       </Row>
     </Container>

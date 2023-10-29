@@ -1,7 +1,7 @@
 {
   "name": "fullstackwebapp1-frontend",
   "version": "0.1.0",
-  "proxy": "http://18.118.128.47:8080/",
+  "proxy": "http://localhost:8080/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -11,6 +11,8 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.5",
+    "@syncfusion/ej2-react-buttons": "^23.1.42",
+    "@syncfusion/ej2-splitbuttons": "^23.1.41",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
