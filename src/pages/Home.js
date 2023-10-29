@@ -36,6 +36,7 @@ export default function Home() {
               <th scope="col">Name</th>
               <th scope="col">Username</th>
               <th scope="col">Email</th>
+              <th scope="col">Gender</th>
               <th scope="col">Phone Number</th>
               <th scope="col">Date</th>
               <th scope="col">Time</th>
@@ -51,6 +52,7 @@ export default function Home() {
                 <td>{user.name}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
+                <td>{user.gender}</td>
                 <td>{user.phonenumber}</td>
                 <td>{user.date}</td>
                 <td>{user.time}</td>
